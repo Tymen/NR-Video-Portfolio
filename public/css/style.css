@@ -1,0 +1,82 @@
+.HomePage .parallax-container {
+    height: 70vh!important;
+}
+.defaultPage .parallax-container {
+    height: 30vh!important;
+}
+.defaultPage, .HomePage {
+    color: white;
+}
+
+.centerText {
+    margin: 0 auto;
+    text-align: center;
+}
+.main-nav {
+    background-color: rgb(221, 221, 221);
+}
+nav ul a:hover {
+    background-color: rgb(70, 70, 70)!important;
+}
+.main-nav {
+    color: rgb(27, 27, 27)!important;
+    transition: .2s;
+}
+.black {
+    color: black;
+}
+.main-nav a:hover {
+    background-color: rgb(80, 80, 80);
+}
+.main-title {
+    text-align: center;
+    vertical-align: center;
+    height: 100%;
+}
+.defaultPageTitle {
+    text-align: center;
+    vertical-align: center;
+    height: 100%;
+}
+.title-text {
+    font-size: 75px !important;
+}
+.btn-custom {
+    padding: 20px 100px;
+    border-radius: 5px;
+    background-color: #414141b7;
+    color: white;
+}
+.btn-custom:hover {
+    background-color: #414141;
+}
+.card img{
+    height: 250px;
+    object-fit: cover!important;
+}
+.indicator-item.active {
+    background-color: black!important;
+}
+.mainPage {
+    min-height: 100vh;
+}
+.card-content {
+    background-color: #414141;
+    color: white;
+}
+.myServices {
+    margin-top: 100px;
+}
+.homeSlider {
+    margin-top: 150px;
+}
+.servicesCardImg {
+    filter: brightness(0.7);
+}
+.pageColor {
+    color: white;
+    background-color: #7d7d7d;
+}
+.homeRow {
+    margin-bottom: 0!important;
+}
