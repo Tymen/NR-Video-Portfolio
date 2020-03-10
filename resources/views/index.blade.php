@@ -25,6 +25,7 @@
         <div class="section">
           <div class="col s12 m4">
             <div class="card waves-effect waves-light">
+                <a href="/trouwen"
               <div class="card-image">
                 <img class="servicesCardImg" src="./images/banter-snaps-y4bE8ST_CTg-unsplash.jpg">
                 <span class="card-title">Trouw films</span>
