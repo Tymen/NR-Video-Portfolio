@@ -61,7 +61,7 @@ nav ul a:hover {
     min-height: 100vh;
 }
 .card-content {
-    background-color: #414141;
+    background-color: #5f5f5f;
     color: white;
 }
 .myServices {
@@ -74,8 +74,6 @@ nav ul a:hover {
     filter: brightness(0.7);
 }
 .pageColor {
-    color: white;
-    background-color: #7d7d7d;
 }
 .homeRow {
     margin-bottom: 0!important;
