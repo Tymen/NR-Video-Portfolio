@@ -16,7 +16,7 @@
 <body>
 <nav>
     <div class="nav-wrapper col s12 grey darken-4">
-        <a href="#" class="brand-logo">NR VIDEO</a>
+        <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="140"/>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">NR VIDEO</h5>
+                <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="170"/>
                 <p class="grey-text text-lighten-4">Ik ben een AV-Specialist</p>
             </div>
             <div class="col l4 offset-l2 s12">

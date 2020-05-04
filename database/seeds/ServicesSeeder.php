@@ -13,8 +13,17 @@ class ServicesSeeder extends Seeder
     public function run()
     {
         Services::truncate();
-        Services::create(['name' => 'Trouwen']);
-        Services::create(['name' => 'AfterParty']);
-        Services::create(['name' => 'Anders']);
+        Services::create([
+            'title' => 'Trouwen',
+            'name' => 'trouwen'
+        ]);
+        Services::create([
+            'title' => 'AfterParty',
+            'name' => 'after-party'
+        ]);
+        Services::create([
+            'title' => 'Anders',
+            'name' => 'anders'
+        ]);
     }
 }

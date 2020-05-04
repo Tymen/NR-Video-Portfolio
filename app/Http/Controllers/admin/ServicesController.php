@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Services;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ServicesController extends Controller
 {
@@ -12,9 +13,9 @@ class ServicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($service)
     {
-        //
+        return view("admin.service")->with("service", Services::where('name', $service)->first());
     }
 
     /**

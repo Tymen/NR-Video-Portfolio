@@ -8,7 +8,7 @@
             <div class="parallax-container">
                 <div class="row valign-wrapper main-title">
                     <div class="col s12">
-                        <h1 class="white-text center-block title-text">NR VIDEO</h1>
+                        <img class="brand-logo MainLogo" src="./images/logo_outlines_wit-01.png" width="340"/>
                     </div>
                 </div>
                 <div class="parallax">
