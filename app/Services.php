@@ -8,6 +8,6 @@ class Services extends Model
 {
     public function ServiceMedia()
     {
-        return $this->hasMany(ServicesMedia::class);
+        return $this->hasMany(ServicesMedia::class, "service_id", "id");
     }
 }

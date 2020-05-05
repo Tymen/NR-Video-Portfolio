@@ -18,6 +18,8 @@ Route::get('/contact', "PagesController@contact");
 Route::get('/services/{service}', "PagesController@services");
 Route::namespace('admin')->name('admin.')->prefix('admin')->group(function () {
         Route::get('/', "AdminController@index");
-        Route::resource('/editpage/{service}', "ServicesController");
+        Route::resource('/editpage', "ServicesController", ['parameters' => [
+            'editpage' => 'service'
+        ]]);
 });
 

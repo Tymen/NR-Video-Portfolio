@@ -16,7 +16,7 @@
 <body>
 <nav>
     <div class="nav-wrapper col s12 grey darken-4">
-        <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="140"/>
+        <a href="/"> <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="140"/></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>

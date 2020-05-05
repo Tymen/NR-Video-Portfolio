@@ -213,13 +213,13 @@ John Abraham</span>is now following you
                                         <div id="editpageService" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/trouwen">Trouwen</a>
+                                                    <a class="nav-link" href="/admin/editpage/trouwen/edit">Trouwen</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/aftermovie">AfterMovie</a>
+                                                    <a class="nav-link" href="/admin/editpage/after-movie/edit">AfterMovie</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/anders">Anders</a>
+                                                    <a class="nav-link" href="/admin/editpage/anders/edit">Anders</a>
                                                 </li>
                                             </ul>
                                         </div>

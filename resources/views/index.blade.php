@@ -23,44 +23,22 @@
                 <h3 class="center">Mijn diensten</h3>
                 <div class="divider"></div>
                 <div class="section">
-                    <div class="col s12 m4">
-                        <div class="card waves-effect waves-light">
-                            <a href="/services/trouwen">
-                                <div class="card-image">
-                                    <img class="servicesCardImg" src="./images/banter-snaps-y4bE8ST_CTg-unsplash.jpg">
-                                    <span class="card-title">Trouw films</span>
-                                </div>
-                                <div class="card-content">
-                                    <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
-                                        dag! Lees hier hoe dit proces verloopt!</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s12 m4">
-                        <div class="card waves-effect waves-light">
-                            <div class="card-image">
-                                <img class="servicesCardImg" src="./images/concept3.jpg">
-                                <span class="card-title">After movies</span>
-                            </div>
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am
-                                    convenient because I require little markup to use effectively.</p>
+                    @foreach($services as $service)
+                        <div class="col s12 m4">
+                            <div class="card waves-effect waves-light">
+                                <a href="/services/{{$service->name}}">
+                                    <div class="card-image">
+                                        <img class="servicesCardImg" src="../images/{{$service->banner}}">
+                                        <span class="card-title">{{$service->title}}</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
+                                            dag! Lees hier hoe dit proces verloopt!</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col s12 m4">
-                        <div class="card waves-effect waves-light">
-                            <div class="card-image">
-                                <img class="servicesCardImg" src="./images/sharegrid-Y7BSXW12rw0-unsplash.jpg">
-                                <span class="card-title">Anders</span>
-                            </div>
-                            <div class="card-content">
-                                <p>Heeft u iets anders in gedachte? wilt u iets anders op film hebben? Of wilt u een
-                                    fotoshoot? lees hier hoe dit proces verloopt! </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

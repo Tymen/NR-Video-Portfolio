@@ -10,7 +10,7 @@ class PagesController extends Controller
 {
     public function homePage()
     {
-        return view("index");
+        return view("index")->with("services", Services::all());
     }
     public function portfolio()
     {
