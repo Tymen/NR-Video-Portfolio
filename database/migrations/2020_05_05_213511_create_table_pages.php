@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesMediaTable extends Migration
+class CreateTablePages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateServicesMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('services_media', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('service_id')->unsigned();
-            $table->foreign('service_id')->references('id')->on('services');
-            $table->boolean('image')->default(false);
-            $table->string('link')->nullable();
+            $table->string("name");
+            $table->string("title");
+            $table->longText("body");
+            $table->string("banner");
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateServicesMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services_media');
+        Schema::dropIfExists('table_pages');
     }
 }

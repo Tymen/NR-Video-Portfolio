@@ -1,6 +1,6 @@
 @extends("layouts.admin")
-@section("doctitle")
-
+@section("docTitle")
+    Edit {{$service->title}} pagina
 @endsection
 @section("title")
     Edit {{$service->title}} pagina
@@ -40,7 +40,7 @@
                 </div>
                 <hr style="background-color: gray;">
                 <div class="row">
-                    <div id="workplanList" class="mt-3 col">
+                    <div id="workplanList" class="mt-6 col-12 col-sm-12 col-lg-6 col-md-12 col">
                         @if($service->workplan)
                             @if(count(json_decode($service->workplan)) < 0)
                                     <div class="form-group">
@@ -64,7 +64,7 @@
                                     <div id="workplanDiv_{{$workplanIndex}}">
                                         <h4>step {{$workplanIndex + 1}}</h4>
                                         <div class="form-group">
-                                            <textarea type="name" id="workplanStep_{{$workplanIndex}}" name="workplanStep_{{$workplanIndex}}" placeholder="title" class="form-control">{{$workplanItem}} </textarea>
+                                            <textarea type="name" rows="3" id="workplanStep_{{$workplanIndex}}" name="workplanStep_{{$workplanIndex}}" placeholder="title" class="form-control">{{$workplanItem}} </textarea>
                                         </div>
                                     </div>
                                 @endforeach
@@ -83,7 +83,7 @@
                                 </div>
                         @endif
                     </div>
-                    <div id="mediaList" class="mt-3 col">
+                    <div id="mediaList" class="mt-6 col-12 col-sm-12 col-lg-6 col-md-12 col">
                         @if(count($service->ServiceMedia->all()) < 1)
                             <div class="form-group">
                                 <input id="mediaCount" name="mediaCount" type="hidden" value="0">
@@ -97,16 +97,32 @@
                                 </div>
                             </div>
                             @else
+                            <div class="form-group">
+                                <input id="mediaCount" name="mediaCount" type="hidden" value="{{count($service->ServiceMedia->all()) - 1}}">
+                                <label class="form-control-label">Select amound of Media</label>
+                                <input type="number" class="form-control" value="{{count($service->ServiceMedia->all())}}" step="1" onchange="setMedia(this)">
+                            </div>
                             @foreach($service->ServiceMedia->all() as $mediaIndex => $mediaItem)
-                                <div class="form-group">
-                                    <input id="mediaCount" name="mediaCount" type="hidden" value="{{count($service->ServiceMedia->all()) - 1}}">
-                                    <label class="form-control-label">Select amound of Media</label>
-                                    <input type="number" class="form-control" value="{{count($service->ServiceMedia->all())}}" step="1" onchange="setMedia(this)">
-                                </div>
                                 <div id="mediaDiv_{{$mediaIndex}}">
-                                    <h4>media {{$mediaIndex + 1}}</h4>
+                                    <h4>media {{$mediaItem->mediaIndex + 1}}</h4>
                                     <div class="form-group">
-                                        <input type="name" name="linkMedia_{{$mediaIndex}}" placeholder="title" value="{{$mediaItem->link}}" class="form-control">
+                                        <div class="input-group mb-3">
+                                        @if($mediaItem->image)
+                                                <img width="80%" height="80%" src={{asset("../images/$mediaItem->link")}}>
+                                        @else
+                                                <iframe width="80%" height="300" src="{{$mediaItem->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        @endif
+                                        </div>
+                                        <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
+                                            <div class="input-group-append be-addon">
+                                                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'img')" class="dropdown-item">Image</a>
+                                                    <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'video')" class="dropdown-item">Video</a>
+                                                </div>
+                                            </div>
+                                            <input type="text" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkMedia_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
@@ -118,6 +134,27 @@
         <button class="btn btn-block btn-primary" type="submit">Save</button>
     </form>
     <script>
+        function changeInputType(el, option) {
+            const mediaInputDiv = document.getElementById("mediaInputField_" + el);
+            const currentInputEl = document.getElementById("linkMedia_" + el);
+            const input = document.createElement('input');
+            input.name = "linkMedia_" + el;
+            input.id = "linkMedia_" + el;
+            input.className = "form-control";
+            if (option == "img"){
+                if (!(currentInputEl.type === "file")){
+                    mediaInputDiv.removeChild(document.getElementById("linkMedia_" + el));
+                    input.type = "file";
+                    mediaInputDiv.appendChild(input);
+                }
+            }else {
+                if (!(currentInputEl.type === "text")) {
+                    mediaInputDiv.removeChild(document.getElementById("linkMedia_" + el));
+                    input.type = "text";
+                    mediaInputDiv.appendChild(input);
+                }
+            }
+        }
         function setMedia(el){
             let i;
             for(i = 0; i < parseInt(el.value); i++){
@@ -127,9 +164,20 @@
                 const div = document.createElement('div');
                 div.id = name;
                 div.innerHTML = `
-                    <h4>media ${i + 1}</h4>
-                    <div class="form-group">
-                        <input type="name" name="linkMedia_${i}" placeholder="title" class="form-control">
+                    <div id="mediaDiv_${i}">
+                        <h4>media ${i + 1}</h4>
+                        <div class="form-group">
+                            <div class="input-group mb-3" id="mediaInputField_${i}">
+                                <div class="input-group-append be-addon">
+                                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <a onclick="changeInputType('${i}', 'img')" class="dropdown-item">Image</a>
+                                        <a onclick="changeInputType('${i}', 'video')" class="dropdown-item">Video</a>
+                                    </div>
+                                </div>
+                                <input type="text" id="linkMedia_${i}" name="linkMedia_${i}" class="form-control">
+                            </div>
+                        </div>
                     </div>
                     `
                 document.getElementById("mediaCount").value = i;
@@ -158,7 +206,7 @@
                 div.innerHTML = `
                     <h4>step ${i + 1}</h4>
                     <div class="form-group">
-                        <textarea type="name" id="workplanStep_${i}" name="workplanStep_${i}" placeholder="title" class="form-control"></textarea>
+                        <textarea type="name" rows="3" id="workplanStep_${i}" name="workplanStep_${i}" placeholder="title" class="form-control"></textarea>
                     </div>
                     `
                 document.getElementById("workplanCount").value = i;

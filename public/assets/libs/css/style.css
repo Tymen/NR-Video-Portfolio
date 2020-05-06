@@ -4351,7 +4351,15 @@ Pills vertical
     height: 16px;
     width: 16px;
 }
-
+.MainLogo{
+    margin-left: 15px;
+}
+.logoTekst{
+    margin: 8px 0px 0px 10px;
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+}
 .switch-button label {
     border-radius: 50%;
     box-shadow: 0 0 1px 1px #FFF inset;

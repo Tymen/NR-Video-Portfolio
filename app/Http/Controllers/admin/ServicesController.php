@@ -82,34 +82,53 @@ class ServicesController extends Controller
             $workPlanResult[] = $request->$bodyWorkplan;
         }
         $getService = Services::where('name', $service)->first();
-        if ($request->hasFile("banner")) {
-            File::delete("images/" . $getService->banner);
-            $image = $request->file("banner");
-            $name = str::slug($request->input('title')) . '_' . time();
-            $filePath =  '/' . $name . '.' . $image->getClientOriginalExtension();
-            $request->banner->move(public_path('images'), $filePath);
-            $imageSize = getimagesize(public_path('images' . $filePath));
-            $imageCompress = Image::make(public_path('images' . $filePath))->fit(round($imageSize[0] / 1.6), round($imageSize[1] / 1.6));;
-            $imageCompress->save();
-            $getService->banner = $filePath;
+        if ($request->hasfile("banner")){
+            $bannerPath = $this->saveImage($request, "banner", $getService->banner);
+            $getService->banner = $bannerPath;
         }
         $getService->title = $request->title;
         $getService->body = $request->body;
         $getService->workplan = json_encode($workPlanResult);
         $getService->save();
-        if (ServicesMedia::where("service_id", $getService->id)){
-            ServicesMedia::where("service_id", $getService->id)->delete();
-        }
+        $getMedia = ServicesMedia::where("service_id", $getService->id)->get();
         for ($i = 0; $i <= $request->mediaCount; $i++){
             $mediaLink = "linkMedia_" . $i;
-            $addServiceMedia = new ServicesMedia();
-            $addServiceMedia->service_id = $getService->id;
-            $addServiceMedia->link = $request->$mediaLink;
-            $addServiceMedia->save();
+            $currMedia = $getMedia->where("mediaIndex", "==",  $i)->first();
+            if ($currMedia){
+                $updateMedia = ServicesMedia::find($currMedia->id);
+                if($request->hasfile($mediaLink)){
+                    $imgPath = $this->saveImage($request, $mediaLink, $updateMedia->link);
+                    $updateMedia->image = 1;
+                    $updateMedia->link = $imgPath;
+                }else {
+                    $updateMedia->image = 0;
+                    $updateMedia->link = $request->$mediaLink;
+                }
+                $updateMedia->save();
+            }else {
+                $addServiceMedia = new ServicesMedia();
+                $addServiceMedia->service_id = $getService->id;
+                $addServiceMedia->mediaIndex = $i;
+                $addServiceMedia->link = $request->$mediaLink;
+                $addServiceMedia->save();
+            }
         }
         return redirect("/admin/editpage/trouwen/edit");
     }
-
+    function saveImage($request, $fileName, $oldfile) {
+        $oldfilepath = "images/" . $oldfile;
+        if(file_exists($oldfilepath)){
+            File::delete($oldfilepath);
+        }
+        $image = $request->file($fileName);
+        $name = str::slug($request->input('title')) . '_' . time();
+        $filePath =  '/' . $name . '.' . $image->getClientOriginalExtension();
+        $request->$fileName->move(public_path('images'), $filePath);
+        $imageSize = getimagesize(public_path('images' . $filePath));
+        $imageCompress = Image::make(public_path('images' . $filePath))->fit(round($imageSize[0] / 1.6), round($imageSize[1] / 1.6));;
+        $imageCompress->save();
+        return $filePath;
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -67,9 +67,15 @@
                 <div class="slider">
                     <ul class="slides">
                         @foreach($serviceData->ServiceMedia->all() as $media)
-                            <li>
-                                <iframe width="100%" height="100%" src="{{$media->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </li>
+                            @if($media->image)
+                                <li>
+                                    <img width="100%" height="100%" src="../images/{{$media->link}}">
+                                </li>
+                            @else
+                                <li>
+                                    <iframe width="100%" height="100%" src="{{$media->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
@@ -79,7 +85,7 @@
     <script>
         $(document).ready(function () {
             $('.slider').slider({
-                interval: 7000,
+                interval: 8000,
             });
         });
 
