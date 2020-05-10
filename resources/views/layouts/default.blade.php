@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href={{asset('/css/style.css')}}>
     <link rel="stylesheet" type="text/css" href={{asset('/css/app.css')}}>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="57x57" href={{asset("../images/favicon/apple-icon-57x57.png")}}>
