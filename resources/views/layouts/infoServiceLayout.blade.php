@@ -24,9 +24,11 @@
                 </div>
                 <div class="row">
                     <main>
+                        @if($serviceData->workplan)
                         @foreach(json_decode($serviceData->workplan) as $workItem)
                             <p>{{$workItem}}</p>
                         @endforeach
+                        @endif
                     </main>
                 </div>
             </div>

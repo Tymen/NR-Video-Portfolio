@@ -20,8 +20,8 @@ class ServicesSeeder extends Seeder
             'name' => 'trouwen'
         ]);
         Services::create([
-            'title' => 'AfterParty',
-            'name' => 'after-party'
+            'title' => 'After Movies',
+            'name' => 'after-movie'
         ]);
         Services::create([
             'title' => 'Anders',

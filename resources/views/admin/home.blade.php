@@ -45,7 +45,7 @@
                             <input id="banner" type="file" name="aboutMeBodyImg_0" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Over mij tekst</label>
+                            <label for="exampleFormControlTextarea1">Over mij tekst kort</label>
                             <textarea class="form-control" id="summary-ckeditor-over" name="aboutMeBody_0">
                                     @if (json_decode($pageData->body) && json_decode($pageData->body)->aboutMeBody[0])
                                     {!! json_decode($pageData->body)->aboutMeBody[0] !!}
@@ -54,6 +54,21 @@
                                 </textarea>
                             <script>
                                 CKEDITOR.replace( 'summary-ckeditor-over' );
+                            </script>
+                        </div>
+
+                    </div>
+                    <div class="mt-6 col-12 col-sm-12 col-lg-12 col-md-12 col">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Over mij tekst lang</label>
+                            <textarea class="form-control" id="summary-ckeditor-ext" name="aboutMeBodyExt_0">
+                                        @if (json_decode($pageData->body) && json_decode($pageData->body)->aboutMeBodyExt[0])
+                                    {!! json_decode($pageData->body)->aboutMeBodyExt[0] !!}
+                                @else
+                                @endif
+                                    </textarea>
+                            <script>
+                                CKEDITOR.replace( 'summary-ckeditor-ext' );
                             </script>
                         </div>
                     </div>
@@ -105,7 +120,7 @@
                 </div>
                 <hr style="background-color: gray;">
                 <div class="row">
-                    <div id="mediaList" class="mt-6 col-12 col-sm-12 col-lg-12 col-md-12 col">
+                    <div id="mediaList" class="mt-6 col-12 col-sm-12 col-lg-12 col-md-6 col">
                         <h3>Media Slider</h3>
                         @if(count($pageData->PagesMedia->all()) < 1)
                             <div class="form-group">

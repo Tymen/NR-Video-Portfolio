@@ -34,6 +34,9 @@
         <div class="card ">
             <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../images/logo.png" width="100" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
+                <div class="bg-danger p-2 m-3">@if($errors->any())
+                        <h4 class="text-white">{{$errors->first()}}</h4>
+                    @endif</div>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">

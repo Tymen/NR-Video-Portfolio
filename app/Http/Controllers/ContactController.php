@@ -15,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view("contact");
+        return view("contact")->with("succes", null);
     }
 
     /**
@@ -54,7 +54,12 @@ class ContactController extends Controller
         $addContact->message = $request->message;
         $addContact->save();
         $serviceData = Services::where('name', '=', $getPage)->first();
-        return view("layouts.infoServiceLayout")->with("serviceData", $serviceData)->with("succes", "Het bericht is verstuurd");
+        if ($getPage == "contact"){
+            return view("contact")->with("serviceData", $serviceData)->with("succes", "Het bericht is verstuurd");
+        }else {
+            return view("layouts.infoServiceLayout")->with("serviceData", $serviceData)->with("succes", "Het bericht is verstuurd");
+
+        }
     }
 
     /**

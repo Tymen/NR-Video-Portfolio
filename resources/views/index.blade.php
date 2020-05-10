@@ -44,6 +44,20 @@
         </div>
         <div class="section">
             <div class="row container">
+                <div class="col s12 m2">
+                </div>
+                <div class="col s12 m8">
+                    @if (json_decode($pageData->body) && json_decode($pageData->body)->aboutMeBodyExt[0])
+                        {!! json_decode($pageData->body)->aboutMeBodyExt[0] !!}
+                    @else
+                    @endif
+                </div>
+                <div class="col s12 m2">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="row container">
                 <h3 class="center">Mijn diensten</h3>
                 <div class="divider"></div>
                 <div class="section">

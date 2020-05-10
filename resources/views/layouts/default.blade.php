@@ -27,6 +27,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     @yield("head")
     <title>@yield("docTitle") | NR Video's</title>
 </head>
@@ -44,6 +46,11 @@
             <li><a href="/">Home</a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="/contact">Contact</a></li>
+            @if(\Illuminate\Support\Facades\Auth::check())
+                @if (\Illuminate\Support\Facades\Auth::user()->hasrole('admin'))
+                    <li><a href="/admin">Admin panel</a></li>
+                @endif
+            @endif
         </ul>
     </div>
 </nav>
@@ -56,6 +63,11 @@
     <li><a href="/">Home</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a href="/contact">Contact</a></li>
+    @if(\Illuminate\Support\Facades\Auth::check())
+        @if (\Illuminate\Support\Facades\Auth::user()->hasrole('admin'))
+            <li><a href="/admin">Admin panel</a></li>
+        @endif
+    @endif
 </ul>
     @yield("content")
 <footer class="page-footer grey darken-2">
@@ -69,8 +81,9 @@
                 <h5 class="white-text">Sitemap</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/portfolio">Portfolio</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/prijzen">Prijzen</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/services/trouwen">Trouwen</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/services/after-movie">After movies</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/services/anders">Anders</a></li>
                     <li><a class="grey-text text-lighten-3" href="/contact">Contact</a></li>
                 </ul>
             </div>
@@ -78,7 +91,7 @@
     </div>
     <div class="footer-copyright grey darken-3">
         <div class="container centerText">
-            &copy; 2020 Copyright NR VIDEO
+            &copy; 2020 Copyright NR Video - Developed by <a href="https://tvis.nl">Tymen Vis | WebDeveloper</a>
         </div>
     </div>
 </footer>
@@ -90,6 +103,14 @@
         $('.parallax').parallax();
     });
     $(".dropdown-trigger").dropdown();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166030771-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166030771-1');
 </script>
 </body>
 </html>

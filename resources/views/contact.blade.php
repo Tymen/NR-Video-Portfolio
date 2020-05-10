@@ -1,17 +1,23 @@
 @extends("layouts.default")
+@section("head")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endsection
 @section("docTitle")
     Contact
 @endsection
 @section("content")
     <div class="row" style="margin-bottom: 0;">
-        <div class="col s12 m12 l6 contact-info" style="background-image: url('{{asset("../images/WJNW5235No.jpg")}}');">
+        <div class="col s12 m12 l5 contact-info" style="background-image: url('{{asset("../images/WJNW5235No.jpg")}}');">
             <div class="container">
 
             </div>
         </div>
-        <div class="col s12 m12 l6 contact-form">
+        <div class="col s12 m12 l7 contact-form">
             <div class="container">
                 <form class="" method="POST" action="/contact">
+                    <a href="mailto:info@nrvideo.nl" class="fa fa-envelope"></a>
+                    <a href="#" class="fa fa-facebook-square"></a>
+                    <a href="#" class="fa fa-instagram"></a>
                     <div class="section">
                         <div class="row">
                             <h5>Neem contact op!</h5>
@@ -28,12 +34,12 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    {{--                                @if ($succes)--}}
-                                    {{--                                    <div class="card-content green darken-2">--}}
-                                    {{--                                        <p>{{$succes}}</p>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                @endif--}}
-                                    <input type="hidden" value="" name="page">
+                                    @if ($succes)
+                                        <div class="card-content green darken-2">
+                                            <p>{{$succes}}</p>
+                                        </div>
+                                    @endif
+                                    <input type="hidden" value="contact" name="page">
                                     <div class="row">
                                         <div class="input-field col s6">
                                             <input id="first_name" type="text" name="firstName" class="validate" required>

@@ -9,7 +9,7 @@
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
         <div class="card">
             <div class="card-body">
-                <a class="btn btn-primary text-white" href="/admin/contact">Settings</a>
+                <a class="btn btn-primary text-white" href="/admin/settings">Settings</a>
                 <div class="d-inline-block">
                     <h5 class="text-muted">Website online:</h5>
                 </div>

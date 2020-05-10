@@ -88,12 +88,14 @@ class PagesEditController extends Controller
             "body" => [],
             "aboutMeImages" => [],
             "aboutMeBody" => [],
+            "aboutMeBodyExt" => [],
         ];
         $getPageBody = json_decode($getPage->body);
         for($x = 0; $x <= 1; $x++){
             $bodyImg = "bodyImg_" . $x;
             $aboutBodyImg = "aboutMeBodyImg_" . $x;
             $aboutBodyTekst = "aboutMeBody_" . $x;
+            $aboutBodyTekstExt = "aboutMeBodyExt_" . $x;
             $bodytekst = "body_" . $x;
             if ($request->hasfile($bodyImg)){
                 $getimage = json_decode($getPage->body) ? json_decode($getPage->body)->images[$x] : "";
@@ -121,6 +123,7 @@ class PagesEditController extends Controller
             }else {
                 $bodyObject->aboutMeImages[] = "";
             }
+            $bodyObject->aboutMeBodyExt[] = $request->$aboutBodyTekstExt;
             $bodyObject->aboutMeBody[] = $request->$aboutBodyTekst;
             $bodyObject->body[] = $request->$bodytekst;
         }
@@ -147,6 +150,8 @@ class PagesEditController extends Controller
                 }
             }else {
                 $addServiceMedia = new PagesMedia();
+                $addServiceMedia->title = $request->$mediaTitle;
+                $addServiceMedia->subtitle = $request->$mediaSubTitle;
                 $addServiceMedia->pages_id = $getPage->id;
                 $addServiceMedia->mediaIndex = $i;
                 $addServiceMedia->link = $uploadImage->saveImage($request, $mediaLink, "");

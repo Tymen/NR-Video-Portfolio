@@ -183,9 +183,26 @@ nav ul a:hover {
     min-height: 100vh!important;
 }
 .contact-info{
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 .contact-form form {
     margin: 20% 0;
+}
+.fa-instagram, .fa-facebook-square, .fa-envelope {
+    background: #125688;
+    color: white;
+}
+.fa {
+    padding: 20px;
+    font-size: 25px!important;
+    text-align: center;
+    width: auto;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
 }
