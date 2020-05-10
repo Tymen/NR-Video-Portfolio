@@ -8,7 +8,7 @@
 
 @section("content")
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-    <form class="col-12" action="/admin/editpage/{{$service->name}}" method="post" enctype="multipart/form-data">
+    <form class="col-12" action="/admin/editservice/{{$service->name}}" method="post" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         @if (count($errors) > 0)
@@ -93,7 +93,16 @@
                             <div id="mediaDiv_0">
                                 <h4>media 1</h4>
                                 <div class="form-group">
-                                    <input type="name" name="linkMedia_0" placeholder="title" class="form-control">
+                                    <div class="input-group mb-3" id="mediaInputField_0">
+                                        <div class="input-group-append be-addon">
+                                            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <a onclick="changeInputType('0', 'img')" class="dropdown-item">Image</a>
+                                                <a onclick="changeInputType('0', 'video')" class="dropdown-item">Video</a>
+                                            </div>
+                                        </div>
+                                        <input type="text" id="linkMedia_0" name="linkMedia_0" class="form-control">
+                                    </div>
                                 </div>
                             </div>
                             @else

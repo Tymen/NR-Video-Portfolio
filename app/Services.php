@@ -10,4 +10,8 @@ class Services extends Model
     {
         return $this->hasMany(ServicesMedia::class, "service_id", "id");
     }
+    public function Contact()
+    {
+        return $this->hasMany(Contact::class, "service_id", "id");
+    }
 }

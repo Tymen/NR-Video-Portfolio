@@ -165,3 +165,27 @@ nav ul a:hover {
     border-bottom: 1px solid #005b98 !important;
     box-shadow: 0 1px 0 0 #005b98 !important;
 }
+.circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.circular--landscape img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+.contact-form, .contact-info{
+    min-height: 100vh!important;
+}
+.contact-info{
+    background-size:cover;
+    background-position: center;
+}
+.contact-form form {
+    margin: 20% 0;
+}

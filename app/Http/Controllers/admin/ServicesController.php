@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\library\UploadImage;
 use App\Services;
 use App\ServicesMedia;
 use Illuminate\Support\Facades\File;
@@ -76,6 +77,7 @@ class ServicesController extends Controller
         $request->validate([
             'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10248',
         ]);
+        $uploadImage = new UploadImage;
         $workPlanResult = [];
         for ($i = 0; $i <= $request->workplanCount; $i++){
             $bodyWorkplan = "workplanStep_" . $i;
@@ -83,8 +85,7 @@ class ServicesController extends Controller
         }
         $getService = Services::where('name', $service)->first();
         if ($request->hasfile("banner")){
-            $bannerPath = $this->saveImage($request, "banner", $getService->banner);
-            $getService->banner = $bannerPath;
+            $getService->banner = $uploadImage->saveImage($request, "banner", $getService->banner);
         }
         $getService->title = $request->title;
         $getService->body = $request->body;
@@ -97,14 +98,14 @@ class ServicesController extends Controller
             if ($currMedia){
                 $updateMedia = ServicesMedia::find($currMedia->id);
                 if($request->hasfile($mediaLink)){
-                    $imgPath = $this->saveImage($request, $mediaLink, $updateMedia->link);
                     $updateMedia->image = 1;
-                    $updateMedia->link = $imgPath;
+                    $updateMedia->link = $uploadImage->saveImage($request, $mediaLink, $updateMedia->link);
+                    $updateMedia->save();
                 }else {
                     $updateMedia->image = 0;
                     $updateMedia->link = $request->$mediaLink;
+                    $updateMedia->save();
                 }
-                $updateMedia->save();
             }else {
                 $addServiceMedia = new ServicesMedia();
                 $addServiceMedia->service_id = $getService->id;
@@ -113,21 +114,7 @@ class ServicesController extends Controller
                 $addServiceMedia->save();
             }
         }
-        return redirect("/admin/editpage/trouwen/edit");
-    }
-    function saveImage($request, $fileName, $oldfile) {
-        $oldfilepath = "images/" . $oldfile;
-        if(file_exists($oldfilepath)){
-            File::delete($oldfilepath);
-        }
-        $image = $request->file($fileName);
-        $name = str::slug($request->input('title')) . '_' . time();
-        $filePath =  '/' . $name . '.' . $image->getClientOriginalExtension();
-        $request->$fileName->move(public_path('images'), $filePath);
-        $imageSize = getimagesize(public_path('images' . $filePath));
-        $imageCompress = Image::make(public_path('images' . $filePath))->fit(round($imageSize[0] / 1.6), round($imageSize[1] / 1.6));;
-        $imageCompress->save();
-        return $filePath;
+        return redirect('/admin/editservice/'. $service .'/edit');
     }
     /**
      * Remove the specified resource from storage.

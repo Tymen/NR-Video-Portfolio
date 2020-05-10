@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pages;
 use App\Services;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Array_;
@@ -10,7 +11,7 @@ class PagesController extends Controller
 {
     public function homePage()
     {
-        return view("index")->with("services", Services::all());
+        return view("index")->with("services", Services::all())->with("pageData", Pages::where('name', "home")->first());
     }
     public function portfolio()
     {
@@ -26,7 +27,7 @@ class PagesController extends Controller
     }
     public function services($route) {
         $serviceData = Services::where('name', '=', $route)->first();
-        return view("layouts.infoServiceLayout")->with("serviceData", $serviceData);
+        return view("layouts.infoServiceLayout")->with("serviceData", $serviceData)->with("succes", null);
     }
     public function trouwen()
     {

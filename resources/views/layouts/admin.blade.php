@@ -45,39 +45,24 @@
                                 <div class="notification-title"> Notification</div>
                                 <div class="notification-list">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action active">
+                                        @if (count(\App\Contact::where("opened", 0)->get()) > 0)
+                                        @foreach(\App\Contact::where("opened", 0)->get() as $noti)
+                                            <a href="/admin/contact/{{$noti->id}}" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img" style="padding: 10px"><i class="fas fa-envelope"></i></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">{{$noti->firstName}} {{$noti->lastName}}</span>{{$noti->subject}}
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        @endforeach
+                                            @else
                                             <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="/assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                    <div class="notification-date">2 min ago</div>
+                                                <div class="notification-list-user-block">
+                                                    No notifications
                                                 </div>
                                             </div>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                            <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="/assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">
-John Abraham</span>is now following you
-                                                    <div class="notification-date">2 days ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                            <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="/assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                    <div class="notification-date">2 min ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                            <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="/assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                    <div class="notification-date">2 min ago</div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                            @endif
                                     </div>
                                 </div>
                             </li>
@@ -161,7 +146,7 @@ John Abraham</span>is now following you
                             <div id="editpagemenu" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../dashboard-finance.html">Home</a>
+                                        <a class="nav-link" href="/admin/editpage/home/edit">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../dashboard-sales.html">Portfolio</a>
@@ -171,19 +156,51 @@ John Abraham</span>is now following you
                                         <div id="editpageService" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/trouwen/edit">Trouwen</a>
+                                                    <a class="nav-link" href="/admin/editservice/trouwen/edit">Trouwen</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/after-movie/edit">AfterMovie</a>
+                                                    <a class="nav-link" href="/admin/editservice/after-movie/edit">AfterMovie</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/admin/editpage/anders/edit">Anders</a>
+                                                    <a class="nav-link" href="/admin/editservice/anders/edit">Anders</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#contactmenu" aria-controls="submenu-2"><i class="fas fa-address-card"></i></i>Contact Messages <span class="badge badge-success">6</span></a>
+                            <div id="contactmenu" class="collapse submenu" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/admin/contact">inbox</a>
+                                    </li>
+{{--                                    <li class="nav-item">--}}
+{{--                                        <a class="nav-link" href="../dashboard-sales.html">Portfolio</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="nav-item">--}}
+{{--                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#editpageService" aria-controls="submenu-1-1">Services</a>--}}
+{{--                                        <div id="editpageService" class="collapse submenu" style="">--}}
+{{--                                            <ul class="nav flex-column">--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" href="/admin/editservice/trouwen/edit">Trouwen</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" href="/admin/editservice/after-movie/edit">AfterMovie</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" href="/admin/editservice/anders/edit">Anders</a>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </li>--}}
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="/admin/settings"><i class="fas fa-sliders-h"></i>settings <span class="badge badge-success">6</span></a>
                         </li>
                     </ul>
                 </div>

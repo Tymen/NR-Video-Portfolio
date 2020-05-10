@@ -12,12 +12,36 @@
                     </div>
                 </div>
                 <div class="parallax">
-                    <img src="./images/WJNW5235No.JPG">
+                    @if($pageData->banner)
+                        <img src="../images/{{$pageData->banner}}">
+                    @else
+                        <img src="./images/WJNW5235No.JPG">
+                    @endif
                 </div>
             </div>
         </div>
     </div>
     <div class="pageColor">
+        <div class="section myServices">
+            <div class=" row container">
+                <div class="col s12 m4 center-align" style="text-align: center">
+                    @if (json_decode($pageData->body) && json_decode($pageData->body)->aboutMeImages[0])
+                        <div style="
+                        width: 200px; display: inline-block; height: 200px; border-radius: 50%; background-color: gray;
+                        background-image: url('{{asset("../images" . json_decode($pageData->body)->aboutMeImages[0])}}'); background-position: center; background-size: cover"></div>
+{{--                        <img src="{{asset("../images/" . json_decode($pageData->body)->images[0])}}" class="responsive-img" width="350px">--}}
+                    @else
+                        <img src="" class="responsive-img" width="350px">
+                    @endif
+                </div>
+                <div class="col s12 m8 left-align">
+                    @if (json_decode($pageData->body) && json_decode($pageData->body)->aboutMeBody[0])
+                        {!! json_decode($pageData->body)->aboutMeBody[0] !!}
+                    @else
+                    @endif
+                </div>
+            </div>
+        </div>
         <div class="section">
             <div class="row container">
                 <h3 class="center">Mijn diensten</h3>
@@ -45,33 +69,35 @@
         <div class="section myServices">
             <div class="row">
                 <div class="container">
-                    <div class="col s6 left-align">
-                        <h3>Titel</h3>
-                        <p>faucibus sit amet. Duis vitae tellus nec dui accumsan pharetra quis sed sapien.
-                            Integer sit amet ipsum nec urna imperdiet convallis. Suspendisse id consectetur
-                            turpis. Nulla facilisi. Sed placerat laoreet dolor,
-                            nec vestibulum nulla commodo vel. Donec lacinia purus ornare tellus imperdiet,
-                            id condimentum quam varius. Proin ut leo nec est condimentum ultrices. Donec
-                            suscipit lacinia sodales. </p>
+                    <div class="col s12 m6 left-align">
+                        @if (json_decode($pageData->body) && json_decode($pageData->body)->body[0])
+                            {!! json_decode($pageData->body)->body[0] !!}
+                        @else
+                        @endif
                     </div>
-                    <div class="col s6 center-align">
-                        <img src="./images/concept2.jpg" class="responsive-img" width="350px">
+                    <div class="col s12 m6 center-align">
+                        @if (json_decode($pageData->body) && json_decode($pageData->body)->images[0])
+                            <img src="{{asset("../images/" . json_decode($pageData->body)->images[0])}}" class="responsive-img" width="350px">
+                        @else
+                            <img src="" class="responsive-img" width="350px">
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="container">
-                    <div class="col s6 center-align">
-                        <img src="./images/concept1.jpg" class="responsive-img" width="350px">
+                    <div class="col s12 m6 center-align">
+                        @if (json_decode($pageData->body) && json_decode($pageData->body)->images[1])
+                            <img src="{{asset("../images/" . json_decode($pageData->body)->images[1])}}" class="responsive-img" width="350px">
+                        @else
+                            <img src="" class="responsive-img" width="350px">
+                        @endif
                     </div>
-                    <div class="col s6 right-align">
-                        <h3>Titel</h3>
-                        <p>faucibus sit amet. Duis vitae tellus nec dui accumsan pharetra quis sed sapien.
-                            Integer sit amet ipsum nec urna imperdiet convallis. Suspendisse id consectetur
-                            turpis. Nulla facilisi. Sed placerat laoreet dolor,
-                            nec vestibulum nulla commodo vel. Donec lacinia purus ornare tellus imperdiet,
-                            id condimentum quam varius. Proin ut leo nec est condimentum ultrices. Donec
-                            suscipit lacinia sodales. </p>
+                    <div class="col s12 m6 right-align">
+                        @if (json_decode($pageData->body) && json_decode($pageData->body)->body[1])
+                            {!! json_decode($pageData->body)->body[1] !!}
+                        @else
+                        @endif
                     </div>
                 </div>
             </div>
@@ -79,34 +105,15 @@
                 <div class="container">
                     <div class="slider homeSlider">
                         <ul class="slides">
+                            @foreach($pageData->PagesMedia->all() as $media)
                             <li>
-                                <img src="./images/banter-snaps-y4bE8ST_CTg-unsplash.jpg"> <!-- random image -->
-                                <div class="caption center-align">
-                                    <h3>This is our big Tagline!</h3>
-                                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="./images/sharegrid-Y7BSXW12rw0-unsplash.jpg"> <!-- random image -->
+                                <img src="{{asset("../images/" . $media->link)}}"> <!-- random image -->
                                 <div class="caption left-align">
-                                    <h3>Left Aligned Caption</h3>
-                                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                                    <h3>{{$media->title}}</h3>
+                                    <h5 class="light grey-text text-lighten-3">{{$media->subtitle}}.</h5>
                                 </div>
                             </li>
-                            <li>
-                                <img src="./images/camera.jpg"> <!-- random image -->
-                                <div class="caption right-align">
-                                    <h3>Right Aligned Caption</h3>
-                                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="./images/WJNW5235No.jpg"> <!-- random image -->
-                                <div class="caption center-align">
-                                    <h3>This is our big Tagline!</h3>
-                                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

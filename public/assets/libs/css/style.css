@@ -4523,7 +4523,9 @@ Pills vertical
     color: #3d405c;
     font-family: 'Circular Std Medium';
 }
-
+.table tr:hover {
+    background-color: rgba(128, 128, 128, 0.36);
+}
 .table-bordered {
     border: 1px solid #e6e6f2;
 }

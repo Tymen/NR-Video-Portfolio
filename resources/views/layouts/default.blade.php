@@ -32,21 +32,29 @@
 </head>
 <body>
 <nav>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/services/trouwen">Trouwen</a></li>
+        <li><a href="/services/after-movie">After movie</a></li>
+        <li><a href="/services/anders">Anders</a></li>
+    </ul>
     <div class="nav-wrapper col s12 grey darken-4">
         <a href="/"> <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="140"/></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/prijzen">Prijzen</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </div>
 </nav>
+<ul id="dropdown2" class="dropdown-content">
+    <li><a href="/services/trouwen">Trouwen</a></li>
+    <li><a href="/services/after-movie">After movie</a></li>
+    <li><a href="/services/anders">Anders</a></li>
+</ul>
 <ul class="sidenav" id="mobile-demo">
     <li><a href="/">Home</a></li>
-    <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/prijzen">Prijzen</a></li>
+    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a href="/contact">Contact</a></li>
 </ul>
     @yield("content")
@@ -81,6 +89,7 @@
     $(document).ready(function(){
         $('.parallax').parallax();
     });
+    $(".dropdown-trigger").dropdown();
 </script>
 </body>
 </html>
