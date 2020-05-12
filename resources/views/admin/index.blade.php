@@ -6,7 +6,8 @@
     Dashboard
 @endsection
 @section("content")
-    <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+    <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
         <div class="card">
             <div class="card-body">
                 <div class="d-inline-block">
@@ -23,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
         <div class="card">
             <div class="card-body">
                 <div class="d-inline-block">
@@ -33,4 +34,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
