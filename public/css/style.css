@@ -171,8 +171,22 @@ nav ul a:hover {
 .homeRow {
     margin-bottom: 0!important;
 }
-.MainLogo {
+.MainLogo, .navLogo {
     padding: 15px !important;
+}
+@media only screen and (max-width:650px) {
+    .MainLogo {
+        width: 250px!important;
+    }
+}@media only screen and (max-width:601px) {
+    .navLogo {
+        padding: 10px!important;
+    }
+}
+@media only screen and (max-width:450px) {
+    .MainLogo {
+        width: 200px!important;
+    }
 }
 .servicepage-img {
     background-position: center;

@@ -40,7 +40,7 @@
         <li><a href="/services/anders">Anders</a></li>
     </ul>
     <div class="nav-wrapper col s12 grey darken-4">
-        <a href="/"> <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="140"/></a>
+        <a href="/"> <img class="brand-logo navLogo responsive-img" src="../images/logo_lang_outlines_wit.png" width="140"/></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
