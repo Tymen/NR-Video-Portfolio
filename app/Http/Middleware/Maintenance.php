@@ -22,7 +22,7 @@ class Maintenance
             if(Auth::check() && Auth::user()->hasrole("admin")){
                 return $next($request);
             }
-            return redirect('/maintenance');
+            return response()->view('maintenance');
         }
         return $next($request);
     }

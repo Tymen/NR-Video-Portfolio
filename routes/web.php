@@ -33,9 +33,6 @@ Route::group(['middleware' => ['maintenance']], function () {
         });
     });
 });
-Route::get('/maintenance', function (){
-   return view('maintenance');
-})->name('maintenance');
 
 Auth::routes();
 Route::get('/logout', 'HomeController@logout');
