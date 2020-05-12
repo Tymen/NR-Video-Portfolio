@@ -67,6 +67,11 @@
                 <img src="{{asset("../images/logo_outlines_wit-01.png")}}" width="20%">
             <h1>De website is momenteel in onderhoud</h1>
                 <p>Kom later terug!</p>
+            <pre>
+
+
+
+            </pre>
             <a href="mailto:info@nrvideo.nl" class="fa fa-envelope"></a>
             <a href="#" class="fa fa-instagram"></a>
             <p>Powered by <a href="https://tvis.nl" class="link">Tymen Vis - WebDeveloper</a></p>
