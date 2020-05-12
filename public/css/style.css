@@ -51,21 +51,21 @@
 }
 
 .workflow {
-    width: 300px;
+    width: 80%;
     margin: auto;
 }
 
 .workflow p {
 
     border-top: 2px dashed;
-    border-color: blue !important;
-    margin:0; padding: 30px;
+    border-color: #3f72ff !important;
+    margin:0; padding: 20px;
 }
 
 
 
 .workflow p:nth-child(even) {
-    border-left: 2px dashed;
+    border-left: 2px dot-dash;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     margin-right: 30px;
@@ -73,7 +73,7 @@
 }
 
 .workflow p:nth-child(odd) {
-    border-right: 2px dashed;
+    border-right: 2px dot-dash;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     margin-left: 30px;

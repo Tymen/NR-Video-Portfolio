@@ -19,25 +19,16 @@
         <div class="row container">
             <div class="col s12 m12 l12 xl6">
                 <h5 class="center">Mijn werk proces</h5>
-                <div class="row">
+                <div class="row" style="padding: 0px 50px;">
                     {!! $serviceData->body !!}
                 </div>
                 <div class="workflow">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi corporis id eius corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit deserunt, saepe sit commodi?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi corporis id eius corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit deserunt, saepe sit commodi?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi corporis id eius corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit deserunt, saepe sit commodi?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi corporis id eius corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit deserunt, saepe sit commodi?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi corporis id eius corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit deserunt, saepe sit commodi?</p>
+                    @if($serviceData->workplan)
+                    @foreach(json_decode($serviceData->workplan) as $workItem)
+                        <p>{{$workItem}}</p>
+                    @endforeach
+                    @endif
                 </div>
-{{--                <div class="row">--}}
-{{--                    <main>--}}
-{{--                        @if($serviceData->workplan)--}}
-{{--                        @foreach(json_decode($serviceData->workplan) as $workItem)--}}
-{{--                            <p>{{$workItem}}</p>--}}
-{{--                        @endforeach--}}
-{{--                        @endif--}}
-{{--                    </main>--}}
-{{--                </div>--}}
             </div>
             <div class="col s12 m12 l12 xl6">
                 <h5 class="center">My work</h5>
