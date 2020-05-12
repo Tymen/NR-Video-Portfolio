@@ -8,7 +8,7 @@
             <div class="parallax-container">
                 <div class="row valign-wrapper main-title">
                     <div class="col s12">
-                        <img class="brand-logo MainLogo" src="./images/logo_outlines_wit-01.png" width="340"/>
+                        <img class="brand-logo MainLogo" src="./images/logo_outlines_wit-01.png" width="20%"/>
                     </div>
                 </div>
                 <div class="parallax">
