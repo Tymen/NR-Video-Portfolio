@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="d-inline-block">
                     <h3 class="text-muted">Go to HomePage</h3>
-                    <a class="btn btn-primary text-white" href="/">Home Page</a>
+                    <a class="btn btn-primary text-white" target="_blank" href="/">Home Page</a>
                 </div>
             </div>
         </div>
