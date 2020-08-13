@@ -158,7 +158,7 @@ class PagesEditController extends Controller
                 $addServiceMedia->save();
             }
         }
-        return redirect('/admin/editpage/'. $page .'/edit');
+        return $page === "anders" ? redirect('/admin/editservice/anders/edit'): redirect('/admin/editpage/'. $page .'/edit');
     }
 
     /**

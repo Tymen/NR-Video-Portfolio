@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\library\UploadImage;
+use App\Pages;
 use App\Services;
 use App\ServicesMedia;
 use Illuminate\Support\Facades\File;
@@ -62,7 +63,7 @@ class ServicesController extends Controller
      */
     public function edit(Services $services, $service)
     {
-        return view("admin.service")->with("service", Services::where('name', $service)->first());
+        return $service === "anders" ? view("admin.anders")->with("service", Pages::where('name', $service)->first()) : view("admin.service")->with("service", Services::where('name', $service)->first());
     }
 
     /**

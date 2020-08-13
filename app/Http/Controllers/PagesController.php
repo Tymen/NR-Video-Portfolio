@@ -27,7 +27,8 @@ class PagesController extends Controller
     }
     public function services($route) {
         $serviceData = Services::where('name', '=', $route)->first();
-        return view("layouts.infoServiceLayout")->with("serviceData", $serviceData)->with("succes", null);
+        $andersData = Pages::where('name', '=', $route)->first();
+        return ($route === "anders") ? view("layouts.anders")->with("serviceData", $andersData)->with("succes", null) : view("layouts.infoServiceLayout")->with("serviceData", $serviceData)->with("succes", null);
     }
     public function trouwen()
     {
