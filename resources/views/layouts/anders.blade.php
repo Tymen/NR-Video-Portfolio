@@ -33,41 +33,61 @@
                 </div>
             </div>
             <style>
-                .main-anders-card div{
+                .main-anders-card div {
                     display: inline-block;
                 }
+
                 .main-anders-card {
-                    -webkit-box-shadow: 0px 0px 9px -2px rgba(0,0,0,0.41);
-                    -moz-box-shadow: 0px 0px 9px -2px rgba(0,0,0,0.41);
-                    box-shadow: 0px 0px 9px -2px rgba(0,0,0,0.41);
+                    margin: 25px 25px 0px 25px;
+                    border-radius: 10px;
+                    -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    -moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
                 }
+
                 .anders-card-parent-image {
                     width: 30%;
+                    padding: 0;
+                    margin: 0;
+                    margin-bottom: -5px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    -moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
                 }
+
                 .anders-card-child-image {
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
                     object-fit: cover;
                     width: 100%;
+                    display: block !important;
                     height: 20%;
                 }
+
                 .anders-card-parent-body {
-                    vertical-align:top;
+                    padding: 10px;
+                    vertical-align: top;
                     height: 100%;
                 }
             </style>
-            @foreach($serviceData->PagesMedia->all() as $media)
-                <div class="row">
-                    <div class="main-anders-card">
-                        <div class="anders-card-parent-image">
-                            <img class="anders-card-child-image" src="{{asset("../images/" . $media->link)}}"/>
-                        </div>
-                        <div class="anders-card-parent-body">
-                            {{$media->title}}
+            <div class="row col s12 m12 l12 xl8">
+                @foreach($serviceData->PagesMedia->all() as $media)
+                    <div class="row">
+                        <div class="main-anders-card">
+                            <div class="anders-card-parent-image">
+                                <img class="anders-card-child-image" src="{{asset("../images/" . $media->link)}}"/>
+                            </div>
+                            <div class="anders-card-parent-body">
+                                {{$media->title}}
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
             <div class="row">
-                <form class="col s12 m12 l12 xl6" method="POST" action="/contact">
+                <form class="col s12 m12 l12 xl4" method="POST" action="/contact">
                     <div class="section">
                         <div class="row">
                             <div class="card grey lighten-3">
@@ -92,7 +112,8 @@
                                     <span class="card-title black-text">Neem contact op!</span>
                                     <div class="row">
                                         <div class="input-field col s6">
-                                            <input id="first_name" type="text" name="firstName" class="validate" required>
+                                            <input id="first_name" type="text" name="firstName" class="validate"
+                                                   required>
                                             <label for="first_name">Voornaam</label>
                                         </div>
                                         <div class="input-field col s6">
@@ -113,11 +134,13 @@
                                             <label>Kies dienst</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <input placeholder="Onderwerp" name="subject" id="first_name" type="text" class="validate" required>
+                                            <input placeholder="Onderwerp" name="subject" id="first_name" type="text"
+                                                   class="validate" required>
                                             <label for="first_name">Onderwerp</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <textarea id="textarea1" name="message" class="materialize-textarea" required></textarea>
+                                            <textarea id="textarea1" name="message" class="materialize-textarea"
+                                                      required></textarea>
                                             <label id="labelTextArea1" for="textarea1">Bericht</label>
                                         </div>
                                     </div>
@@ -140,7 +163,7 @@
                 interval: 8000,
             });
         });
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('select').formSelect();
         });
     </script>
