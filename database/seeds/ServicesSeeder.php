@@ -27,12 +27,23 @@ class ServicesSeeder extends Seeder
             'title' => 'Anders',
             'name' => 'anders'
         ]);
+        Services::create([
+            'title' => 'Over',
+            'name' => 'over'
+        ]);
         Pages::truncate();
         Pages::create([
             'name' => 'home',
             'blade' => 'home',
             'title' => 'Home',
             'body' => '{"images":["\/home_1588893725.jpg","\/home_1588893746.jpg"],"body":["<p><strong>Titel<\/strong><br \/>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit justo tellus, molestie tristique arcu posuere a. Vivamus scelerisque cursus mi eu semper. Cras pretium ligula vitae finibus egestas. Praesent eu rhoncus mauris, sit amet venenatis massa. Cras gravida ante non feugiat consequat. Morbi faucibus ipsum vitae dignissim posuere. In dignissim egestas consequat.&nbsp;<\/p>","<p><strong>Titel<\/strong><br \/>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit justo tellus, molestie tristique arcu posuere a. Vivamus scelerisque cursus mi eu semper. Cras pretium ligula vitae finibus egestas. Praesent eu rhoncus mauris, sit amet venenatis massa. Cras gravida ante non feugiat consequat. Morbi faucibus ipsum vitae dignissim posuere. In dignissim egestas consequat.&nbsp;<\/p>"],"aboutMeImages":["\/home_1589024501.jpg",null],"aboutMeBody":["<p>sdadawdadawdwadaw<\/p>",null],"aboutMeBodyExt":["<p>sdadawdadawdwadaw<\/p>",null]}',
+            'banner' => ''
+        ]);
+        Services::create([
+            'name' => 'over',
+            'blade' => 'over',
+            'title' => 'over',
+            'body' => '{"images":["\/home_1588893725.jpg","\/home_1588893746.jpg"],"body":["<p><strong>Titel<\/strong><br \/>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit justo tellus, molestie tristique arcu posuere a. Vivamus scelerisque cursus mi eu semper. Cras pretium ligula vitae finibus egestas. Praesent eu rhoncus mauris, sit amet venenatis massa. Cras gravida ante non feugiat consequat. Morbi faucibus ipsum vitae dignissim posuere. In dignissim egestas consequat.&nbsp;<\/p>","<p><strong>Titel<\/strong><br \/>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit justo tellus, molestie tristique arcu posuere a. Vivamus scelerisque cursus mi eu semper. Cras pretium ligula vitae finibus egestas. Praesent eu rhoncus mauris, sit amet venenatis massa. Cras gravida ante non feugiat consequat. Morbi faucibus ipsum vitae dignissim posuere. In dignissim egestas consequat.&nbsp;<\/p>"],"aboutMeImages":["\/home_1589024501.jpg",null],"aboutMeBody":["<p>sdadawdadawdwadaw<\/p>",null], "aboutMeBodyExt":["<p>sdadawdadawdwadaw<\/p>",null]}',
             'banner' => ''
         ]);
         Pages::create([

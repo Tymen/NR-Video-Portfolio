@@ -73,7 +73,7 @@
 
             </pre>
             <a href="mailto:info@nrvideo.nl" class="fa fa-envelope"></a>
-            <a href="#" class="fa fa-instagram"></a>
+            <a href="https://www.instagram.com/nr_video_/" target="_blank" class="fa fa-instagram"></a>
             <p>Powered by <a href="https://tvis.nl" class="link">Tymen Vis - WebDeveloper</a></p>
         </div>
     </div>

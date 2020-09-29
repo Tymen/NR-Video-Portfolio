@@ -62,20 +62,23 @@
                 <div class="divider"></div>
                 <div class="section">
                     @foreach($services as $service)
-                        <div class="col s12 m4">
-                            <div class="card waves-effect waves-light">
-                                <a href="/services/{{$service->name}}">
-                                    <div class="card-image">
-                                        <img class="servicesCardImg" src="../images/{{$service->banner}}">
-                                        <span class="card-title">{{$service->title}}</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
-                                            dag! Lees hier hoe dit proces verloopt!</p>
-                                    </div>
-                                </a>
+                        @if($service->name == "over" || $service->name == "after-movie")
+                        @else
+                            <div class="col s12 m6">
+                                <div class="card waves-effect waves-light">
+                                    <a href="/services/{{$service->name}}">
+                                        <div class="card-image">
+                                            <img class="servicesCardImg" src="../images/{{$service->banner}}">
+                                            <span class="card-title">{{$service->title}}</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
+                                                dag! Lees hier hoe dit proces verloopt!</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

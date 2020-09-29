@@ -16,8 +16,8 @@
             <div class="container">
                 <form class="" method="POST" action="/contact">
                     <a href="mailto:info@nrvideo.nl" class="fa fa-envelope"></a>
-                    <a href="#" class="fa fa-facebook-square"></a>
-                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="https://www.facebook.com/nrvideovideograaf" target="_blank" class="fa fa-facebook-square"></a>
+                    <a href="https://www.instagram.com/nr_video_/" target="_blank" class="fa fa-instagram"></a>
                     <div class="section">
                         <div class="row">
                             <h5>Neem contact op!</h5>

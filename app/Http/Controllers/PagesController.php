@@ -17,9 +17,8 @@ class PagesController extends Controller
     {
         return view("portfolio");
     }
-    public function prijzen()
-    {
-        return view("prijzen");
+    public function over(){
+        return view("over")->with('serviceData', Services::where('name', '=', 'over')->first());
     }
     public function contact()
     {

@@ -18,8 +18,7 @@
     <div class="servicePage_section section">
         <div class="row container">
             <div class="row">
-                <div class="col s12 m12 l12 xl12">
-                    <h5 class="center">Mijn werk proces</h5>
+                <div class="col s8 m8 l8 xl8">
                     <div class="row" style="padding: 0px 50px;">
                         {!! json_decode($serviceData->body)->aboutMeBodyExt[0] !!}
                     </div>

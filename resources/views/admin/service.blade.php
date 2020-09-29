@@ -39,6 +39,64 @@
                     </script>
                 </div>
                 <hr style="background-color: gray;">
+                @if ($service->name == "over")
+                    <div class="row">
+                        <div id="mediaList" class="mt-6 col-12 col-sm-12 col-lg-12 col-md-12 col">
+                            @if(count($service->ServiceMedia->all()) < 1)
+                                <div class="form-group">
+                                    <input id="mediaCount" name="mediaCount" type="hidden" value="0">
+                                    <label class="form-control-label">Select amound of Media</label>
+                                    <input type="number" class="form-control" value="1" step="1" onchange="setMedia(this)">
+                                </div>
+                                <div id="mediaDiv_0">
+                                    <h4>media 1</h4>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3" id="mediaInputField_0">
+                                            <div class="input-group-append be-addon">
+                                                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a onclick="changeInputType('0', 'img')" class="dropdown-item">Image</a>
+                                                    <a onclick="changeInputType('0', 'video')" class="dropdown-item">Video</a>
+                                                </div>
+                                            </div>
+                                            <input type="text" id="linkMedia_0" name="linkMedia_0" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="form-group">
+                                    <input id="mediaCount" name="mediaCount" type="hidden" value="{{count($service->ServiceMedia->all()) - 1}}">
+                                    <label class="form-control-label">Select amound of Media</label>
+                                    <input type="number" class="form-control" value="{{count($service->ServiceMedia->all())}}" step="1" onchange="setMedia(this)">
+                                </div>
+                                @foreach($service->ServiceMedia->all() as $mediaIndex => $mediaItem)
+                                    <div id="mediaDiv_{{$mediaIndex}}">
+                                        <h4>media {{$mediaItem->mediaIndex + 1}}</h4>
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                @if($mediaItem->image)
+                                                    <img width="80%" height="80%" src={{asset("../images/$mediaItem->link")}}>
+                                                @else
+                                                    <iframe width="80%" height="300" src="{{$mediaItem->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                @endif
+                                            </div>
+                                            <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
+                                                <div class="input-group-append be-addon">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                                    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                        <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'img')" class="dropdown-item">Image</a>
+                                                        <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'video')" class="dropdown-item">Video</a>
+                                                    </div>
+                                                </div>
+                                                <input type="text" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkMedia_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @else
                 <div class="row">
                     <div id="workplanList" class="mt-6 col-12 col-sm-12 col-lg-6 col-md-12 col">
                         @if($service->workplan)
@@ -138,6 +196,7 @@
                         @endif
                     </div>
                 </div>
+                @endif
             </div>
         </div>
         <button class="btn btn-block btn-primary" type="submit">Save</button>

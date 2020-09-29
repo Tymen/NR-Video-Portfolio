@@ -36,7 +36,7 @@
 <nav>
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="/services/trouwen">Trouwen</a></li>
-        <li><a href="/services/after-movie">After movie</a></li>
+{{--        <li><a href="/services/after-movie">After movie</a></li>--}}
         <li><a href="/services/anders">Anders</a></li>
     </ul>
     <div class="nav-wrapper col s12 grey darken-4">
@@ -45,6 +45,7 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="/over">Over</a></li>
             <li><a href="/contact">Contact</a></li>
             @if(\Illuminate\Support\Facades\Auth::check())
                 @if (\Illuminate\Support\Facades\Auth::user()->hasrole('admin'))
@@ -56,12 +57,13 @@
 </nav>
 <ul id="dropdown2" class="dropdown-content">
     <li><a href="/services/trouwen">Trouwen</a></li>
-    <li><a href="/services/after-movie">After movie</a></li>
+{{--    <li><a href="/services/after-movie">After movie</a></li>--}}
     <li><a href="/services/anders">Anders</a></li>
 </ul>
 <ul class="sidenav" id="mobile-demo">
     <li><a href="/">Home</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Diensten<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a href="/over">Over</a></li>
     <li><a href="/contact">Contact</a></li>
     @if(\Illuminate\Support\Facades\Auth::check())
         @if (\Illuminate\Support\Facades\Auth::user()->hasrole('admin'))
@@ -82,7 +84,7 @@
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
                     <li><a class="grey-text text-lighten-3" href="/services/trouwen">Trouwen</a></li>
-                    <li><a class="grey-text text-lighten-3" href="/services/after-movie">After movies</a></li>
+{{--                    <li><a class="grey-text text-lighten-3" href="/services/after-movie">After movies</a></li>--}}
                     <li><a class="grey-text text-lighten-3" href="/services/anders">Anders</a></li>
                     <li><a class="grey-text text-lighten-3" href="/contact">Contact</a></li>
                 </ul>

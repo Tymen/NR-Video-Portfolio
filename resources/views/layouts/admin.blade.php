@@ -149,6 +149,9 @@
                                         <a class="nav-link" href="/admin/editpage/home/edit">Home</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="/admin/editservice/over/edit">Over</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#editpageService" aria-controls="submenu-1-1">Services</a>
                                         <div id="editpageService" class="collapse submenu" style="">
                                             <ul class="nav flex-column">

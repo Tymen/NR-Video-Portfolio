@@ -97,6 +97,12 @@
 .defaultPage .parallax-container {
     height: 30vh!important;
 }
+.card-center > div{
+    display: inline-block!important;
+}
+.card-center{
+    text-align: center;
+}
 .defaultPage, .HomePage {
     color: white;
 }
