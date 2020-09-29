@@ -13,7 +13,7 @@
                 </div>
                 <div class="parallax">
                     @if($pageData->banner)
-                        <img src="../images/{{$pageData->banner}}">
+                        <img src="{{url('../images/' . $pageData->banner)}}">
                     @else
                         <img src="./images/WJNW5235No.JPG">
                     @endif
@@ -68,7 +68,7 @@
                                 <div class="card waves-effect waves-light">
                                     <a href="/services/{{$service->name}}">
                                         <div class="card-image">
-                                            <img class="servicesCardImg" src="../images/{{$service->banner}}">
+                                            <img class="servicesCardImg" src="{{asset("../images/" . $service->banner)}}">
                                             <span class="card-title">{{$service->title}}</span>
                                         </div>
                                         <div class="card-content">
