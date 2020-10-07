@@ -77,7 +77,7 @@
         <div class="row">
             <div class="col l6 s12">
                 <img class="brand-logo MainLogo" src="../images/logo_lang_outlines_wit.png" width="170"/>
-                <p class="grey-text text-lighten-4">Ik ben een AV-Specialist</p>
+                <p class="grey-text text-lighten-4">KVK: 80456839</p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Sitemap</h5>
