@@ -95,6 +95,7 @@ class ServicesController extends Controller
         $getMedia = ServicesMedia::where("service_id", $getService->id)->get();
         for ($i = 0; $i <= $request->mediaCount; $i++){
             $mediaLink = "linkMedia_" . $i;
+            $mediaVideo = "linkVideo_" . $i;
             $currMedia = $getMedia->where("mediaIndex", "==",  $i)->first();
             if ($currMedia){
                 $updateMedia = ServicesMedia::find($currMedia->id);
@@ -102,8 +103,12 @@ class ServicesController extends Controller
                     $updateMedia->image = 1;
                     $updateMedia->link = $uploadImage->saveImage($request, $mediaLink, $updateMedia->link);
                     $updateMedia->save();
-                }else {
+                }elseif($request->$mediaVideo) {
                     $updateMedia->image = 0;
+                    $updateMedia->link = $request->$mediaVideo;
+                    $updateMedia->save();
+                }else {
+                    $updateMedia->image = 1;
                     $updateMedia->link = $request->$mediaLink;
                     $updateMedia->save();
                 }

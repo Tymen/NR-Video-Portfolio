@@ -22,13 +22,13 @@
                 <div class="row" style="padding: 0px 50px;">
                     {!! $serviceData->body !!}
                 </div>
-                <div class="workflow">
-                    @if($serviceData->workplan)
-                    @foreach(json_decode($serviceData->workplan) as $workItem)
-                        <p>{{$workItem}}</p>
-                    @endforeach
-                    @endif
-                </div>
+{{--                <div class="workflow">--}}
+{{--                    @if($serviceData->workplan)--}}
+{{--                    @foreach(json_decode($serviceData->workplan) as $workItem)--}}
+{{--                        <p>{{$workItem}}</p>--}}
+{{--                    @endforeach--}}
+{{--                    @endif--}}
+{{--                </div>--}}
             </div>
             <div class="col s12 m12 l12 xl6">
                 <h5 class="center">My work</h5>
@@ -47,6 +47,9 @@
                         @endforeach
                     </ul>
                 </div>
+            </div>
+            <div class="col s12 m12 l12 xl6">
+
             </div>
             <form class="col s12 m12 l12 xl6" method="POST" action="/contact">
                 <div class="section">
