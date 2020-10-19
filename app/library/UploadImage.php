@@ -10,11 +10,7 @@ use Intervention\Image\Facades\Image;
 
 class UploadImage
 {
-    public function saveImage($request, $fileName, $oldfile) {
-        $oldfilepath = "images/" . $oldfile;
-        if(file_exists($oldfilepath)){
-            File::delete($oldfilepath);
-        }
+    public function saveImage($request, $fileName) {
         $image = $request->file($fileName);
         $name = str::slug($request->input('title')) . '_' . time();
         $filePath =  '/' . $name . '.' . $image->getClientOriginalExtension();

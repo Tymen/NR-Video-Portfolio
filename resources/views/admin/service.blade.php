@@ -256,7 +256,7 @@
                                         <a onclick="changeInputType('${i}', 'video')" class="dropdown-item">Video</a>
                                     </div>
                                 </div>
-                                <input type="text" id="linkMedia_${i}" name="linkMedia_${i}" class="form-control">
+                                <input type="text" id="linkVideo_${i}" name="linkVideo_${i}" class="form-control">
                             </div>
                         </div>
                     </div>

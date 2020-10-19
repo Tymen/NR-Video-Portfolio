@@ -6,6 +6,7 @@ use App\library\UploadImage;
 use App\Pages;
 use App\Services;
 use App\ServicesMedia;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -93,32 +94,29 @@ class ServicesController extends Controller
         $getService->workplan = json_encode($workPlanResult);
         $getService->save();
         $getMedia = ServicesMedia::where("service_id", $getService->id)->get();
+        $mediaIndex = [];
+        foreach($getMedia as $mediaId){
+            array_push($mediaIndex, $mediaId->id);
+        }
+        DB::table("services_medias")->whereIn('id', $mediaIndex)->delete();
         for ($i = 0; $i <= $request->mediaCount; $i++){
             $mediaLink = "linkMedia_" . $i;
             $mediaVideo = "linkVideo_" . $i;
             $currMedia = $getMedia->where("mediaIndex", "==",  $i)->first();
-            if ($currMedia){
-                $updateMedia = ServicesMedia::find($currMedia->id);
-                if($request->hasfile($mediaLink)){
-                    $updateMedia->image = 1;
-                    $updateMedia->link = $uploadImage->saveImage($request, $mediaLink, $updateMedia->link);
-                    $updateMedia->save();
-                }elseif($request->$mediaVideo) {
-                    $updateMedia->image = 0;
-                    $updateMedia->link = $request->$mediaVideo;
-                    $updateMedia->save();
-                }else {
-                    $updateMedia->image = 1;
-                    $updateMedia->link = $request->$mediaLink;
-                    $updateMedia->save();
-                }
+            $addServiceMedia = new ServicesMedia();
+            $addServiceMedia->service_id = $getService->id;
+            $addServiceMedia->link = $request->$mediaLink;
+            if($request->hasfile($mediaLink)){
+                $addServiceMedia->image = 1;
+                $addServiceMedia->link = $uploadImage->saveImage($request, $mediaLink);
+            }elseif($request->$mediaVideo) {
+                $addServiceMedia->link = $request->$mediaVideo;
+                $addServiceMedia->image = 0;
             }else {
-                $addServiceMedia = new ServicesMedia();
-                $addServiceMedia->service_id = $getService->id;
-                $addServiceMedia->mediaIndex = $i;
-                $addServiceMedia->link = $request->$mediaLink;
-                $addServiceMedia->save();
+                $addServiceMedia->image = 1;
             }
+            $addServiceMedia->mediaIndex = $i;
+            $addServiceMedia->save();
         }
         return redirect('/admin/editservice/'. $service .'/edit');
     }
