@@ -94,6 +94,7 @@
                                                 <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
                                                     <input type="file" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkMedia_{{$mediaItem->mediaIndex}}" class="form-control">
                                                 </div>
+                                                <input type="hidden" name="pathImage_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}">
                                             </div>
                                         </div>
                                     </div>

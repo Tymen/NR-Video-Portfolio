@@ -11,7 +11,7 @@ class PagesController extends Controller
 {
     public function homePage()
     {
-        return view("index")->with("services", Services::all())->with("pageData", Pages::where('name', "home")->first());
+        return view("index")->with("services", Services::all())->with("pageData", Pages::where('name', "home")->first()->with("andersData", Pages::where('name', "anders")->first()));
     }
     public function portfolio()
     {

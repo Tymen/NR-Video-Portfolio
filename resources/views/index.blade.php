@@ -80,6 +80,20 @@
                             </div>
                         @endif
                     @endforeach
+                        <div class="col s12 m6">
+                            <div class="card waves-effect waves-light">
+                                <a href="/services/{{$andersData->name}}">
+                                    <div class="card-image">
+                                        <img class="servicesCardImg" src="{{asset("../images/" . $andersData->banner)}}">
+                                        <span class="card-title">{{$andersData->title}}</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
+                                            dag! Lees hier hoe dit proces verloopt!</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

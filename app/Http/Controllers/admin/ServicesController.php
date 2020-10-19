@@ -102,7 +102,6 @@ class ServicesController extends Controller
         for ($i = 0; $i <= $request->mediaCount; $i++){
             $mediaLink = "linkMedia_" . $i;
             $mediaVideo = "linkVideo_" . $i;
-            $currMedia = $getMedia->where("mediaIndex", "==",  $i)->first();
             $addServiceMedia = new ServicesMedia();
             $addServiceMedia->service_id = $getService->id;
             $addServiceMedia->link = $request->$mediaLink;
