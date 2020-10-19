@@ -9,6 +9,8 @@ use App\Services;
 use App\ServicesMedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 class PagesEditController extends Controller
 {
     /**
@@ -132,31 +134,27 @@ class PagesEditController extends Controller
         $getPage->body = json_encode($bodyObject);
         $getPage->save();
         $getMedia = PagesMedia::where("pages_id", $getPage->id)->get();
+        $mediaIndex = [];
+        foreach($getMedia as $mediaId){
+            array_push($mediaIndex, $mediaId->id);
+        }
+        DB::table("pages_medias")->whereIn('id', $mediaIndex)->delete();
         for ($i = 0; $i <= $request->mediaCount; $i++){
             $mediaLink = "linkMedia_" . $i;
             $mediaTitle = "linkMediaTitle_" . $i;
             $mediaSubTitle = "linkMediaSubtitle_" . $i;
-            $currMedia = $getMedia->where("mediaIndex", "==",  $i)->first();
-            if ($currMedia){
-                $updateMedia = PagesMedia::find($currMedia->id);
-                $updateMedia->title = $request->$mediaTitle;
-                $updateMedia->subtitle = $request->$mediaSubTitle;
-                if($request->hasfile($mediaLink)){
-                    $updateMedia->link = $uploadImage->saveImage($request, $mediaLink, $updateMedia->link);
-                    $updateMedia->save();
-                }else {
-                    $updateMedia->image = 0;
-                    $updateMedia->save();
-                }
+            $pathImage = "pathImage_" . $i;
+            $addServiceMedia = new PagesMedia();
+            $addServiceMedia->title = $request->$mediaTitle;
+            $addServiceMedia->subtitle = $request->$mediaSubTitle;
+            $addServiceMedia->pages_id = $getPage->id;
+            $addServiceMedia->mediaIndex = $i;
+            if($request->hasfile($mediaLink)){
+                $addServiceMedia->link = $uploadImage->saveImage($request, $mediaLink);
             }else {
-                $addServiceMedia = new PagesMedia();
-                $addServiceMedia->title = $request->$mediaTitle;
-                $addServiceMedia->subtitle = $request->$mediaSubTitle;
-                $addServiceMedia->pages_id = $getPage->id;
-                $addServiceMedia->mediaIndex = $i;
-                $addServiceMedia->link = $uploadImage->saveImage($request, $mediaLink, "");
-                $addServiceMedia->save();
+                $addServiceMedia->link = $request->$pathImage;
             }
+            $addServiceMedia->save();
         }
         return $page === "anders" ? redirect('/admin/editservice/anders/edit'): redirect('/admin/editpage/'. $page .'/edit');
     }
