@@ -72,8 +72,7 @@
                                             <span class="card-title">{{$service->title}}</span>
                                         </div>
                                         <div class="card-content">
-                                            <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
-                                                dag! Lees hier hoe dit proces verloopt!</p>
+                                            <p>Laat van jullie bruiloft een unieke trouwfilm maken om jullie mooie moment keer op keer opnieuw te beleven</p>
                                         </div>
                                     </a>
                                 </div>
@@ -88,8 +87,7 @@
                                         <span class="card-title">{{$andersData->title}}</span>
                                     </div>
                                     <div class="card-content">
-                                        <p>Leg u speciale dag vast op film zodat je later terug kan kijken of jouwn perfecte
-                                            dag! Lees hier hoe dit proces verloopt!</p>
+                                        <p>Bekijk welke diensten ik nog meer lever</p>
                                     </div>
                                 </a>
                             </div>
