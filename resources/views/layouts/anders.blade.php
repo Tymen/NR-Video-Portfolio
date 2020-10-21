@@ -79,7 +79,8 @@
                                 <img class="anders-card-child-image" src="{{asset("../images/" . $media->link)}}"/>
                             </div>
                             <div class="anders-card-parent-body">
-                                {{$media->title}}
+                                <p><strong>{{$media->title}}</strong></p>
+                                <p>{{$media->subtitle}}</p>
                             </div>
                         </div>
                     </div>
