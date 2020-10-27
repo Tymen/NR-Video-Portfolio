@@ -73,23 +73,34 @@
                                     <div id="mediaDiv_{{$mediaIndex}}">
                                         <h4>media {{$mediaItem->mediaIndex + 1}}</h4>
                                         <div class="form-group">
-                                            <div class="input-group mb-3">
-                                                @if($mediaItem->image)
-                                                    <img width="80%" height="80%" src={{asset("../images/$mediaItem->link")}}>
-                                                @else
-                                                    <iframe width="80%" height="300" src="{{$mediaItem->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                @endif
-                                            </div>
-                                            <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
-                                                <div class="input-group-append be-addon">
-                                                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
-                                                    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'img')" class="dropdown-item">Image</a>
-                                                        <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'video')" class="dropdown-item">Video</a>
+                                            @if($mediaItem->image)
+                                                <div class="input-group mb-3">
+                                                    <img width="80%" height="80%" src={{asset("../images/$mediaItem->link")}}>                                            </div>
+                                                <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
+                                                    <div class="input-group-append be-addon">
+                                                        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                            <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'img')" class="dropdown-item">Image</a>
+                                                            <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'video')" class="dropdown-item">Video</a>
+                                                        </div>
                                                     </div>
+                                                    <input type="text" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkMedia_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}" class="form-control">
                                                 </div>
-                                                <input type="text" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkMedia_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}" class="form-control">
-                                            </div>
+                                            @else
+                                                <div class="input-group mb-3">
+                                                    <iframe width="80%" height="300" src="{{$mediaItem->link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                                <div class="input-group mb-3" id="mediaInputField_{{$mediaItem->mediaIndex}}">
+                                                    <div class="input-group-append be-addon">
+                                                        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">Select type</button>
+                                                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(1158px, 41px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                            <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'img')" class="dropdown-item">Image</a>
+                                                            <a onclick="changeInputType('{{$mediaItem->mediaIndex}}', 'video')" class="dropdown-item">Video</a>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" id="linkMedia_{{$mediaItem->mediaIndex}}" name="linkVideo_{{$mediaItem->mediaIndex}}" value="{{$mediaItem->link}}" class="form-control">
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
