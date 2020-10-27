@@ -37,6 +37,7 @@
                 }
 
                 .main-anders-card {
+                    display: flex;
                     margin: 25px 25px 0px 25px;
                     border-radius: 10px;
                     /*-webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
