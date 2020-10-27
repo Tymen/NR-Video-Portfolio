@@ -35,7 +35,11 @@
                 .main-anders-card div {
                     display: inline-block;
                 }
-
+                @media only screen and (max-width:700px) {
+                    .main-anders-card {
+                        display: block;
+                    }
+                }
                 .main-anders-card {
                     display: flex;
                     margin: 25px 25px 0px 25px;
