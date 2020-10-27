@@ -39,30 +39,29 @@
                 .main-anders-card {
                     margin: 25px 25px 0px 25px;
                     border-radius: 10px;
-                    -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
-                    -moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
-                    box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    /*-webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
+                    /*-moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
+                    /*box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
                 }
 
                 .anders-card-parent-image {
-                    width: 30%;
                     padding: 0;
                     margin: 0;
                     margin-bottom: -5px;
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
-                    -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
-                    -moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
-                    box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);
+                    /*-webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
+                    /*-moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
+                    /*box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.41);*/
                 }
 
                 .anders-card-child-image {
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
                     object-fit: cover;
-                    width: 100%;
+                    width: 250px;
                     display: block !important;
-                    height: 20%;
+                    height: 100%;
                 }
 
                 .anders-card-parent-body {
