@@ -37,7 +37,7 @@
                 }
                 @media only screen and (max-width:700px) {
                     .main-anders-card {
-                        display: block;
+                        display: block!important;
                     }
                 }
                 .main-anders-card {
