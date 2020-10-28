@@ -59,7 +59,7 @@
                                                     <a onclick="changeInputType('0', 'video')" class="dropdown-item">Video</a>
                                                 </div>
                                             </div>
-                                            <input type="text" id="linkMedia_0" name="linkMedia_0" class="form-control">
+                                            <input type="text" id="linkMedia_0" name="linkVideo_0" class="form-control">
                                         </div>
                                     </div>
                                 </div>
